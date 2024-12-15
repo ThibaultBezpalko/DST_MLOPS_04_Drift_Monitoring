@@ -1,0 +1,17 @@
+==========================================
+DRIFT MONITORING
+==========================================
+
+############################
+Environment preparation
+############################
+
+# Virtual Environment
+virtualenv venv
+source venv/bin/activate
+
+# Evidently installation
+pip install evidently
+
+# Start Evidently
+evidently ui --demo-projects all

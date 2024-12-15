@@ -1,0 +1,437 @@
+{
+  "id": "0193ca07-6eba-74cb-8d4d-4a03815093d9",
+  "name": "Demo project - Reviews",
+  "description": "A toy demo project using E-commerce Reviews dataset. Text and tabular data, classification.",
+  "dashboard": {
+    "name": "Demo project - Reviews",
+    "panels": [
+      {
+        "type": "evidently:dashboard_panel:DashboardPanelCounter",
+        "id": "0193ca07-6ebb-761e-aa00-3f967a380120",
+        "title": "Classification of E-commerce User Reviews",
+        "filter": {
+          "metadata_values": {},
+          "tag_values": [],
+          "include_test_suites": false
+        },
+        "size": 2,
+        "agg": "none",
+        "value": null,
+        "text": null
+      },
+      {
+        "type": "evidently:dashboard_panel:DashboardPanelCounter",
+        "id": "0193ca07-6ebc-7c34-b4e7-2fde1c92e56b",
+        "title": "Model Calls",
+        "filter": {
+          "metadata_values": {},
+          "tag_values": [],
+          "include_test_suites": false
+        },
+        "size": 1,
+        "agg": "sum",
+        "value": {
+          "field_path": "current.number_of_rows",
+          "metric_id": "DatasetSummaryMetric",
+          "metric_fingerprint": null,
+          "metric_args": {},
+          "legend": "count"
+        },
+        "text": "count"
+      },
+      {
+        "type": "evidently:dashboard_panel:DashboardPanelCounter",
+        "id": "0193ca07-6ebd-76b9-8276-515fcb80cc80",
+        "title": "Share of Drifted Features",
+        "filter": {
+          "metadata_values": {},
+          "tag_values": [],
+          "include_test_suites": false
+        },
+        "size": 1,
+        "agg": "last",
+        "value": {
+          "field_path": "share_of_drifted_columns",
+          "metric_id": "DatasetDriftMetric",
+          "metric_fingerprint": null,
+          "metric_args": {},
+          "legend": "share"
+        },
+        "text": "share"
+      },
+      {
+        "type": "evidently:dashboard_panel:DashboardPanelPlot",
+        "id": "0193ca07-6ebe-7cf8-85e3-f9bf2d6ee104",
+        "title": "Model Precision",
+        "filter": {
+          "metadata_values": {},
+          "tag_values": [],
+          "include_test_suites": false
+        },
+        "size": 2,
+        "values": [
+          {
+            "field_path": "current.precision",
+            "metric_id": "ClassificationQualityMetric",
+            "metric_fingerprint": null,
+            "metric_args": {},
+            "legend": "precision"
+          }
+        ],
+        "plot_type": "line"
+      },
+      {
+        "type": "evidently:dashboard_panel:DashboardPanelPlot",
+        "id": "0193ca07-6ebf-7264-81c4-19bee6b927e5",
+        "title": "Target and Prediction Drift (Jensen-Shannon distance) ",
+        "filter": {
+          "metadata_values": {},
+          "tag_values": [],
+          "include_test_suites": false
+        },
+        "size": 1,
+        "values": [
+          {
+            "field_path": "drift_score",
+            "metric_id": "ColumnDriftMetric",
+            "metric_fingerprint": null,
+            "metric_args": {
+              "column_name.name": "prediction"
+            },
+            "legend": "prediction drift score"
+          },
+          {
+            "field_path": "drift_score",
+            "metric_id": "ColumnDriftMetric",
+            "metric_fingerprint": null,
+            "metric_args": {
+              "column_name.name": "Rating"
+            },
+            "legend": "target drift score"
+          }
+        ],
+        "plot_type": "line"
+      },
+      {
+        "type": "evidently:dashboard_panel:DashboardPanelPlot",
+        "id": "0193ca07-6ec0-7d0b-b478-a5de6c31832c",
+        "title": "Data Drift: review texts (domain classifier ROC AUC) ",
+        "filter": {
+          "metadata_values": {},
+          "tag_values": [],
+          "include_test_suites": false
+        },
+        "size": 1,
+        "values": [
+          {
+            "field_path": "drift_score",
+            "metric_id": "ColumnDriftMetric",
+            "metric_fingerprint": null,
+            "metric_args": {
+              "column_name.name": "Title"
+            },
+            "legend": "Title"
+          },
+          {
+            "field_path": "drift_score",
+            "metric_id": "ColumnDriftMetric",
+            "metric_fingerprint": null,
+            "metric_args": {
+              "column_name.name": "Review_Text"
+            },
+            "legend": "Review_Text"
+          }
+        ],
+        "plot_type": "line"
+      },
+      {
+        "type": "evidently:dashboard_panel:DashboardPanelPlot",
+        "id": "0193ca07-6ec1-7cee-9621-4d03392b0b1f",
+        "title": "Data Drift: numerical features (Wasserstein distance)",
+        "filter": {
+          "metadata_values": {},
+          "tag_values": [],
+          "include_test_suites": false
+        },
+        "size": 1,
+        "values": [
+          {
+            "field_path": "drift_score",
+            "metric_id": "ColumnDriftMetric",
+            "metric_fingerprint": null,
+            "metric_args": {
+              "column_name.name": "Age"
+            },
+            "legend": "Age"
+          },
+          {
+            "field_path": "drift_score",
+            "metric_id": "ColumnDriftMetric",
+            "metric_fingerprint": null,
+            "metric_args": {
+              "column_name.name": "Positive_Feedback_Count"
+            },
+            "legend": "Positive_Feedback_Count"
+          }
+        ],
+        "plot_type": "line"
+      },
+      {
+        "type": "evidently:dashboard_panel:DashboardPanelPlot",
+        "id": "0193ca07-6ec2-7821-b8e5-f99022262a08",
+        "title": "Data Drift: categorical features (Jensen-Shannon distance)",
+        "filter": {
+          "metadata_values": {},
+          "tag_values": [],
+          "include_test_suites": false
+        },
+        "size": 1,
+        "values": [
+          {
+            "field_path": "drift_score",
+            "metric_id": "ColumnDriftMetric",
+            "metric_fingerprint": null,
+            "metric_args": {
+              "column_name.name": "Division_Name"
+            },
+            "legend": "Division_Name"
+          },
+          {
+            "field_path": "drift_score",
+            "metric_id": "ColumnDriftMetric",
+            "metric_fingerprint": null,
+            "metric_args": {
+              "column_name.name": "Department_Name"
+            },
+            "legend": "Department_Name"
+          },
+          {
+            "field_path": "drift_score",
+            "metric_id": "ColumnDriftMetric",
+            "metric_fingerprint": null,
+            "metric_args": {
+              "column_name.name": "Class_Name"
+            },
+            "legend": "Class_Name"
+          }
+        ],
+        "plot_type": "line"
+      },
+      {
+        "type": "evidently:dashboard_panel:DashboardPanelPlot",
+        "id": "0193ca07-6ec3-70b3-b4e4-577cd04e2b20",
+        "title": "Review Text Quality: % of out-of-vocabulary words",
+        "filter": {
+          "metadata_values": {},
+          "tag_values": [],
+          "include_test_suites": false
+        },
+        "size": 1,
+        "values": [
+          {
+            "field_path": "current_characteristics.mean",
+            "metric_id": "ColumnSummaryMetric",
+            "metric_fingerprint": null,
+            "metric_args": {
+              "column_name": {
+                "type": "evidently:base:ColumnName",
+                "name": "7ab80cb767fc1ec131c87b938e734e91.Review_Text",
+                "display_name": "OOV",
+                "dataset": "additional"
+              }
+            },
+            "legend": "OOV % (mean)"
+          }
+        ],
+        "plot_type": "line"
+      },
+      {
+        "type": "evidently:dashboard_panel:DashboardPanelPlot",
+        "id": "0193ca07-6ec4-792e-a0a2-e868f4520d33",
+        "title": "Review Text Quality: % of non-letter characters",
+        "filter": {
+          "metadata_values": {},
+          "tag_values": [],
+          "include_test_suites": false
+        },
+        "size": 1,
+        "values": [
+          {
+            "field_path": "current_characteristics.mean",
+            "metric_id": "ColumnSummaryMetric",
+            "metric_fingerprint": null,
+            "metric_args": {
+              "column_name": {
+                "type": "evidently:base:ColumnName",
+                "name": "fdf30d4f3308aefa1c8baf7498160836.Review_Text",
+                "display_name": "Non Letter Character Percentage",
+                "dataset": "additional"
+              }
+            },
+            "legend": "NonLetterCharacter % (mean)"
+          }
+        ],
+        "plot_type": "line"
+      },
+      {
+        "type": "evidently:dashboard_panel:DashboardPanelPlot",
+        "id": "0193ca07-6ec5-722b-8975-97e83bc78d56",
+        "title": "Review Text Quality: share of non-empty reviews",
+        "filter": {
+          "metadata_values": {},
+          "tag_values": [],
+          "include_test_suites": false
+        },
+        "size": 1,
+        "values": [
+          {
+            "field_path": "current.share_in_range",
+            "metric_id": "ColumnValueRangeMetric",
+            "metric_fingerprint": null,
+            "metric_args": {},
+            "legend": "Reviews with 1-1000 symbols"
+          }
+        ],
+        "plot_type": "line"
+      },
+      {
+        "type": "evidently:dashboard_panel:DashboardPanelPlot",
+        "id": "0193ca07-6ec6-7bfd-a0ac-92c3eaf335b3",
+        "title": " Review sentiment",
+        "filter": {
+          "metadata_values": {},
+          "tag_values": [],
+          "include_test_suites": false
+        },
+        "size": 1,
+        "values": [
+          {
+            "field_path": "current_characteristics.mean",
+            "metric_id": "ColumnSummaryMetric",
+            "metric_fingerprint": null,
+            "metric_args": {
+              "column_name": {
+                "type": "evidently:base:ColumnName",
+                "name": "dbe4b1cf85d8766186804ca1b16cdac2.Review_Text",
+                "display_name": "Sentiment",
+                "dataset": "additional"
+              }
+            },
+            "legend": "sentiment (mean)"
+          }
+        ],
+        "plot_type": "line"
+      },
+      {
+        "type": "evidently:dashboard_panel:DashboardPanelPlot",
+        "id": "0193ca07-6ec7-79e6-b807-bd5d9fb83449",
+        "title": "Share of reviews mentioning 'TheOtherStore', 'AMajorCompetitor', 'AwesomeShop'",
+        "filter": {
+          "metadata_values": {},
+          "tag_values": [],
+          "include_test_suites": false
+        },
+        "size": 1,
+        "values": [
+          {
+            "field_path": "current.category_ratio",
+            "metric_id": "ColumnCategoryMetric",
+            "metric_fingerprint": null,
+            "metric_args": {
+              "column_name": {
+                "type": "evidently:base:ColumnName",
+                "name": "51f4d8aca72dbf21150b1c24e240fa1a.Review_Text_theotherstore_amajorcompetitor_awesomeshop_False",
+                "display_name": "competitors",
+                "dataset": "additional"
+              },
+              "category": 1
+            },
+            "legend": "reviews with competitors"
+          }
+        ],
+        "plot_type": "line"
+      },
+      {
+        "type": "evidently:dashboard_panel:DashboardPanelDistribution",
+        "id": "0193ca07-6ec8-7405-b607-e9acadf7560c",
+        "title": "Reviews with URLs distribution",
+        "filter": {
+          "metadata_values": {},
+          "tag_values": [],
+          "include_test_suites": true
+        },
+        "size": 1,
+        "value": {
+          "field_path": "plot_data.bins_for_hist.current",
+          "metric_id": "ColumnSummaryMetric",
+          "metric_fingerprint": null,
+          "metric_args": {
+            "column_name": {
+              "type": "evidently:base:ColumnName",
+              "name": "cd4e9fcdf11101c5f63597c0cce3f661.Review_Text_.*(http|www)\\S+.*",
+              "display_name": "urls",
+              "dataset": "additional"
+            }
+          },
+          "legend": "reviews with URLs"
+        },
+        "barmode": "stack"
+      },
+      {
+        "type": "evidently:dashboard_panel:DashboardPanelPlot",
+        "id": "0193ca07-6ec9-773c-90e6-da94abacde5b",
+        "title": "Share of reviews ranked \"1\"",
+        "filter": {
+          "metadata_values": {},
+          "tag_values": [],
+          "include_test_suites": false
+        },
+        "size": 1,
+        "values": [
+          {
+            "field_path": "current.category_ratio",
+            "metric_id": "ColumnCategoryMetric",
+            "metric_fingerprint": null,
+            "metric_args": {
+              "column_name.name": "Rating",
+              "category": 1
+            },
+            "legend": "share of \"1\""
+          }
+        ],
+        "plot_type": "line"
+      },
+      {
+        "type": "evidently:dashboard_panel:DashboardPanelPlot",
+        "id": "0193ca07-6eca-7010-8941-0da493b148ef",
+        "title": "Share of reviews ranked \"5\"",
+        "filter": {
+          "metadata_values": {},
+          "tag_values": [],
+          "include_test_suites": false
+        },
+        "size": 1,
+        "values": [
+          {
+            "field_path": "current.category_ratio",
+            "metric_id": "ColumnCategoryMetric",
+            "metric_fingerprint": null,
+            "metric_args": {
+              "column_name.name": "Rating",
+              "category": 5
+            },
+            "legend": "share of \"5\""
+          }
+        ],
+        "plot_type": "line"
+      }
+    ],
+    "tabs": [],
+    "tab_id_to_panel_ids": {}
+  },
+  "team_id": null,
+  "org_id": null,
+  "date_from": null,
+  "date_to": null,
+  "created_at": "2024-12-15T11:15:05.018474"
+}

@@ -1,0 +1,16 @@
+{
+  "id": "0193cad4-b356-7c9a-8690-a26a28375d49",
+  "name": "simple_regression_model_monitoring",
+  "description": null,
+  "dashboard": {
+    "name": "simple_regression_model_monitoring",
+    "panels": [],
+    "tabs": [],
+    "tab_id_to_panel_ids": {}
+  },
+  "team_id": null,
+  "org_id": null,
+  "date_from": null,
+  "date_to": null,
+  "created_at": "2024-12-15T14:59:17.462704"
+}
